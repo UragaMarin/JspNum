@@ -17,6 +17,13 @@
         <div class="p-3 mb-2 bg-dark text-white">
         <h1>Numeros al azar</h1>
         </div>
+        <div class="container">
+            <h2>
+                <%= 
+                    request.getParameter("numero") == null? "Sin dato" : request.getParameter("numero")
+                %>
+            </h2>
+        </div>
         <%
             int x = Integer.parseInt(request.getParameter("numero"));
             if (x > 0){
