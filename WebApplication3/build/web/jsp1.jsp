@@ -53,6 +53,8 @@
         <%
             }
         %>
+        <br>
+        <br>
         <div class="container">
             <h1>El numero es <%= x %></h1>
         </div>
