@@ -64,6 +64,7 @@
         <br>
         <div class="container">
             <h1>El numero es <%= x %></h1>
+            <a href="jsp2.jsp">Ir a jsp2</a>
         </div>
     </body>
 </html>
