@@ -46,7 +46,7 @@
                     }
         %>
                     <div class="container">
-                    <h1>El valor es <%= y %></h1>
+                    <h1>El valor es <%/*= y */%></h1>
                     </div>
         <%
                 }
