@@ -13,35 +13,33 @@ import java.util.List;
  * @author ItaPi
  */
 public class Negocio implements Serializable{
-    private List<Datos>lista;
+    private List<Datos> Lista;
 
-    public Negocio() {
+    public Negocio() {}
+    
+    public boolean loadLista()
+    {
+        Datos datos = null;
+        Lista = new ArrayList<>();
+        for(int i = 1; i <= 5; i++) {
+            datos = new Datos();
+            datos.setGrade((float)(Math.random()*10));
+            datos.setName(String.format("Alumno %d", i));
+            Lista.add(datos);
+        }
+        return Lista != null && !Lista.isEmpty();
     }
     
-    public boolean loadLista(){
-        Datos datos = null;
-        lista = new ArrayList<>();
-        for(int i = 1; i <= 5; i++){
-            datos = new Datos();
-            datos.setCalf((float)(Math.random() * 10));
-            datos.setNombre(String.format("Abc %d", i));
-            lista.add(datos);
-        }
-        return lista != null && lista.isEmpty();
-    }
-
     public List<Datos> getLista() {
-        if(lista == null || lista.isEmpty()){
-            if(!loadLista()){
-             return null;   
+        if(Lista == null || Lista.isEmpty()) {
+            if(!loadLista()) {
+                return null;
             }
         }
-        return lista;
+        return Lista;
     }
 
-    public void setLista(List<Datos> lista) {
-        this.lista = lista;
+    public void setLista(List<Datos> Lista) {
+        this.Lista = Lista;
     }
-    
-    
 }

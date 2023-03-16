@@ -17,36 +17,46 @@
     </head>
     <body>
         <h1>Mi jsp2!</h1>
-        <%
+        <% 
             Negocio negocio = new Negocio();
-            int numero = (int)(Math.random() * 1000);
-            String cad = String.format("?numero=%d" , numero);
+            int numero = (int)(Math.random()*20);
+            String cad = String.format("?numero=%d", numero);
         %>
         <div class="container">
-            <a href="jsp1.jsp<%= cad%>">Ir a jsp2</a>
+            <a href="jsp1.jsp<%=cad%>">Ir a JSP1 con numero aleatorio</a>
+        </div>
+            <br>
+        <div class="container">
+            <a href="jsp1.jsp">Regresar al JSP1</a>
         </div>
         <div class="container">
-            <a href="jsp1.jsp">Ir a jsp2 v1</a>
+            <h1>Tabla</h1>
         </div>
         <div class="container">
-            <table border="1">
-                <tr>
-                    <td>Nombre</td>
-                    <td>Cal</td>
-                </tr>
-                <%
-                    if(negocio.getLista() != null && negocio.getLista().isEmpty()){
-                        for(Datos datos : negocio.getLista()){
-                %>
-                            <tr>
-                                <td><%= datos.getNombre() %></td>
-                                <td><%= datos.getCalf() %></td>
-                            </tr>
-                <%
-                        }
+            <table>
+          <thead>
+            <tr>
+              <th >Nombre</th>
+              <th >Calificacion</th>
+            </tr>
+          </thead>
+          <tbody class="table-group-divider">
+            <%
+                if(negocio.getLista() != null && ! negocio.getLista().isEmpty())
+                {
+                    for(Datos datos : negocio.getLista())
+                    {
+            %>
+            <tr>
+                <td><%=datos.getName()%></td>
+                <td><%=datos.getGrade()%></td>
+            </tr>
+            <%
                     }
-                %>
-            </table>
+                }
+            %>
+          </tbody>
+        </table>
         </div>
     </body>
 </html>

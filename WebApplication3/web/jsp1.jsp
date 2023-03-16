@@ -18,53 +18,40 @@
         <h1>Numeros al azar</h1>
         </div>
         <div class="container">
-            <h2>
-                <%= 
-                    request.getParameter("numero") == null? "Sin dato" : request.getParameter("numero")
+            <h2>Numeros</h2>
+        </div>
+                <%
+                    if(request.getParameter("numero") != null) {
+                int arreglo[] = new int[Integer.parseInt(request.getParameter("numero"))];
+                for (int i = 0; i < Integer.parseInt(request.getParameter("numero")); i++) {
+                    arreglo[i]= (int)((Math.random())*200);
+                    if(arreglo[i] > 50) {
                 %>
-            </h2>
-        </div>
-        <%
-            int x = Integer.parseInt(request.getParameter("numero"));
-            if (x > 0){
-                for (int i = 1; i <= x; i++) {
-                    int y = (int)((Math.random() * 100));
-                    if(y < 50){
-        %>
-                    <div class="container">
-                    <h1>Es menor a 50</h1>
-                    </div>
-        <%
-                    }
-                    else
-                    {
-        %>
-                        <div class="container">
-                        <h1>Es mayor o igual a 50</h1>
-                        </div>
-        <%
-                    }
-        %>
-                    <div class="container">
-                    <h1>El valor es <%/*= y */%></h1>
-                    </div>
-        <%
-                }
-            }
-            else
-            {
-        %>
                 <div class="container">
-                <h1>Es un numero es invalido</h1>
+                <h1><%=arreglo[i] %> es mayor a 50</h1>
                 </div>
-        <%
-            }
-        %>
-        <br>
-        <br>
-        <div class="container">
-            <h1>El numero es <%= x %></h1>
-            <a href="jsp2.jsp">Ir a jsp2</a>
-        </div>
+                <%
+                    }
+                    else {
+                %>
+                <div class="container">
+                <h1><%=arreglo[i] %> es menor a 50</h1>
+                </div>
+                <%
+                            }
+                        }
+                    }
+                    else {
+                %>
+                <div class="container">
+                <h1>Los numeros apareceran aqui.</h1>
+                </div>
+                <%
+                          }
+                %>
+                <br>
+                <div class="container">
+                <a href="jsp2.jsp">Ir a JSP2</a>
+                </div>
     </body>
 </html>
