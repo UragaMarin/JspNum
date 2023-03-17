@@ -8,38 +8,49 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author ItaPi
- */
-public class Negocio implements Serializable{
-    private List<Datos> Lista;
+public class Negocio implements Serializable
+{
+    private List<Datos>lista;
 
-    public Negocio() {}
-    
-    public boolean loadLista()
+    public Negocio() 
     {
-        Datos datos = null;
-        Lista = new ArrayList<>();
-        for(int i = 1; i <= 5; i++) {
-            datos = new Datos();
-            datos.setGrade((float)(Math.random()*10));
-            datos.setName(String.format("Alumno %d", i));
-            Lista.add(datos);
-        }
-        return Lista != null && !Lista.isEmpty();
     }
     
-    public List<Datos> getLista() {
-        if(Lista == null || Lista.isEmpty()) {
-            if(!loadLista()) {
+    public boolean loadLista( )
+    {
+        Datos datos = null;
+        lista = new ArrayList<>();
+        for( int i = 1; i <= 5; i++)
+        {
+            datos = new Datos( );
+            datos.setCalf( (float)(Math.random() * 10));
+            datos.setNombre( String.format("Abc %d", i) );
+            lista.add(datos);
+        }
+        return lista != null && !lista.isEmpty();
+    }
+
+    public List<Datos> getLista() 
+    {
+        if( lista == null || lista.isEmpty() )
+        {
+            if( !loadLista( ) )
+            {
                 return null;
             }
         }
-        return Lista;
+        return lista;
     }
 
-    public void setLista(List<Datos> Lista) {
-        this.Lista = Lista;
+    public void setLista(List<Datos> lista) 
+    {
+        this.lista = lista;
     }
+    
+    
+    
+    
+    
+    
+    
 }

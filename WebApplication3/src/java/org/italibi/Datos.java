@@ -1,24 +1,32 @@
 package org.italibi;
 import java.io.Serializable;
-public class Datos implements Serializable{
-    private String name;
-    private float grade;
+public class Datos implements Serializable
+{
+    private String nombre;
+    private float calf;
 
-    public Datos() {}
-    
-    public String getName() {
-        return name;
+    public Datos() 
+    {
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getNombre() 
+    {
+        return nombre;
     }
 
-    public float getGrade() {
-        return grade;
+    public void setNombre(String nombre) 
+    {
+        this.nombre = nombre;
     }
 
-    public void setGrade(float grade) {
-        this.grade = grade;
+    public float getCalf()
+    {
+        return calf;
     }
+
+    public void setCalf(float calf)
+    {
+        this.calf = calf;
+    }
+ 
 }

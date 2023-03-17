@@ -4,6 +4,7 @@
     Author     : alumno
 --%>
 
+<%@page import="java.util.List"%>
 <%@page import="org.italibi.Datos"%>
 <%@page import="org.italibi.Negocio"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -17,10 +18,19 @@
     </head>
     <body>
         <h1>Mi jsp2!</h1>
-        <% 
-            Negocio negocio = new Negocio();
-            int numero = (int)(Math.random()*20);
-            String cad = String.format("?numero=%d", numero);
+        <%
+            Negocio negocio = new Negocio( );
+            int numero = (int)(Math.random()* 1000);
+            String cad = String.format( "?numero=%d" , numero );
+            List<Datos> lista = null;
+            session = request.getSession( true );
+            if( session != null )
+            {
+                if( session.getAttribute("lista") != null )
+                {
+                    lista = (List)session.getAttribute( "lista" );
+                }
+            }
         %>
         <div class="container">
             <a href="jsp1.jsp<%=cad%>">Ir a JSP1 con numero aleatorio</a>
@@ -30,32 +40,31 @@
             <a href="jsp1.jsp">Regresar al JSP1</a>
         </div>
         <div class="container">
+            <a href="jsp3.jsp">Ir a jsp3</a>
+        </div>
+        <div class="container">
             <h1>Tabla</h1>
         </div>
         <div class="container">
-            <table>
-          <thead>
+            <table border="1">
             <tr>
-              <th >Nombre</th>
-              <th >Calificacion</th>
+                <td>Nombre</td>
+                <td>Cal</td>
             </tr>
-          </thead>
-          <tbody class="table-group-divider">
             <%
-                if(negocio.getLista() != null && ! negocio.getLista().isEmpty())
+              if( lista != null && !lista.isEmpty() )
+              {
+                for( Datos datos : lista)
                 {
-                    for(Datos datos : negocio.getLista())
-                    {
             %>
             <tr>
-                <td><%=datos.getName()%></td>
-                <td><%=datos.getGrade()%></td>
+                <td><%=datos.getNombre()%></td>
+                <td><%=datos.getCalf()%></td>
             </tr>
             <%
-                    }
                 }
+              }
             %>
-          </tbody>
         </table>
         </div>
     </body>
