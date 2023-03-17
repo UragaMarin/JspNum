@@ -19,11 +19,12 @@
     <body>
         <h1>Mi jsp2!</h1>
         <%
-            Negocio negocio = new Negocio( );
-            int numero = (int)(Math.random()* 1000);
-            String cad = String.format( "?numero=%d" , numero );
+            int i = 0;
             List<Datos> lista = null;
+            String id = null;
+            String borrar = null;
             session = request.getSession( true );
+            
             if( session != null )
             {
                 if( session.getAttribute("lista") != null )
@@ -31,14 +32,17 @@
                     lista = (List)session.getAttribute( "lista" );
                 }
             }
+            id = request.getParameter("id");
+            borrar = request.getParameter("borrar");
+            if( "Submit".equals( borrar ) )
+            {
+                lista.remove( Integer.parseInt(id) );
+            }
         %>
-        <div class="container">
-            <a href="jsp1.jsp<%=cad%>">Ir a JSP1 con numero aleatorio</a>
-        </div>
-            <br>
         <div class="container">
             <a href="jsp1.jsp">Regresar al JSP1</a>
         </div>
+            <br>
         <div class="container">
             <a href="jsp3.jsp">Ir a jsp3</a>
         </div>
@@ -48,8 +52,11 @@
         <div class="container">
             <table border="1">
             <tr>
+                <td>#</td>
+                <td>Id</td>
                 <td>Nombre</td>
                 <td>Cal</td>
+                <td>Acciones</td>
             </tr>
             <%
               if( lista != null && !lista.isEmpty() )
@@ -58,8 +65,14 @@
                 {
             %>
             <tr>
+                <td><%=i + 1%></td>
+                <td><%=i%></td>
                 <td><%=datos.getNombre()%></td>
                 <td><%=datos.getCalf()%></td>
+                <td>
+                    <a href="jsp2.jsp?id=<%=i%>&borrar=Submit">Borrar</a> 
+                    <a href="jsp3.jsp?id=<%=i++%>&editar=Submit">Editar</a> 
+                </td>
             </tr>
             <%
                 }
