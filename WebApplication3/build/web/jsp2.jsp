@@ -51,16 +51,19 @@
             <h1>Tabla</h1>
         </div>
         <div class="container">
-            <table border="1">
-            <tr>
-                <td>#</td>
-                <td>Id</td>
-                <td>Nombre</td>
-                <td>Precio</td>
-                <td>Marca</td>
-                <td>Stock</td>
-                <td>Acciones</td>
-            </tr>
+            <table border="1" class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Id</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Marca</th>
+                        <th scope="col">Stock</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
             <%
               if( lista != null && !lista.isEmpty() )
               {
@@ -68,7 +71,7 @@
                 {
             %>
             <tr>
-                <td><%=i + 1%></td>
+                <th scope="row"><%=i + 1%></th>
                 <td><%=i%></td>
                 <td><%=datos.getNombre()%></td>
                 <td><%=datos.getPrecio()%></td>
@@ -83,7 +86,8 @@
                 }
               }
             %>
-        </table>
+                </tbody>
+            </table>
         </div>
     </body>
 </html>
