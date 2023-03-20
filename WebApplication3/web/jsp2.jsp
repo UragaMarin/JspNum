@@ -17,7 +17,9 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     </head>
     <body>
-        <h1>Mi jsp2!</h1>
+        <div class="p-3 mb-2 bg-dark text-white">
+        <h1>Tienda de la esquina</h1>
+        </div>
         <%
             int i = 0;
             List<Datos> lista = null;
@@ -41,11 +43,10 @@
         %>
         <div class="container">
             <a href="jsp1.jsp">Regresar al JSP1</a>
+            <br>
+            <a href="jsp3.jsp">Ir a JSP3</a>
         </div>
             <br>
-        <div class="container">
-            <a href="jsp3.jsp">Ir a jsp3</a>
-        </div>
         <div class="container">
             <h1>Tabla</h1>
         </div>
@@ -55,7 +56,9 @@
                 <td>#</td>
                 <td>Id</td>
                 <td>Nombre</td>
-                <td>Cal</td>
+                <td>Precio</td>
+                <td>Marca</td>
+                <td>Stock</td>
                 <td>Acciones</td>
             </tr>
             <%
@@ -68,7 +71,9 @@
                 <td><%=i + 1%></td>
                 <td><%=i%></td>
                 <td><%=datos.getNombre()%></td>
-                <td><%=datos.getCalf()%></td>
+                <td><%=datos.getPrecio()%></td>
+                <td><%=datos.getMarca()%></td>
+                <td><%=datos.getStock()%></td>
                 <td>
                     <a href="jsp2.jsp?id=<%=i%>&borrar=Submit">Borrar</a> 
                     <a href="jsp3.jsp?id=<%=i++%>&editar=Submit">Editar</a> 

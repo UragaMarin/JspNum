@@ -3,30 +3,43 @@ import java.io.Serializable;
 public class Datos implements Serializable
 {
     private String nombre;
-    private float calf;
+    private String marca;
+    private float precio;
+    private int stock;
 
     public Datos() 
     {
     }
 
-    public String getNombre() 
-    {
+    public String getNombre() {
         return nombre;
     }
 
-    public void setNombre(String nombre) 
-    {
+    public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
-    public float getCalf()
-    {
-        return calf;
+    public String getMarca() {
+        return marca;
     }
 
-    public void setCalf(float calf)
-    {
-        this.calf = calf;
+    public void setMarca(String marca) {
+        this.marca = marca;
     }
- 
+
+    public float getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(float precio) {
+        this.precio = precio;
+    }
+
+    public int getStock() {
+        return stock;
+    }
+
+    public void setStock(int stock) {
+        this.stock = stock;
+    }
 }

@@ -19,7 +19,9 @@
     <body>
         <%
             String nombre = null;
-            String calif = null;
+            String precio = null;
+            String marca = null;
+            String stock = null;
             String guardar = null;
             String id = null;
             String editar = null;
@@ -39,7 +41,9 @@
                 lista = (List)session.getAttribute("lista");
             }
             nombre = request.getParameter( "nombre" );
-            calif = request.getParameter( "calif" );
+            precio = request.getParameter( "precio" );
+            marca = request.getParameter( "marca" );
+            stock = request.getParameter( "stock" );
             guardar = request.getParameter( "guardar" );
             id = request.getParameter( "id" );
             editar = request.getParameter( "editar" );
@@ -66,7 +70,9 @@
                     datos = lista.get( Integer.parseInt( id ) );
                 }
                 datos.setNombre(nombre);
-                datos.setCalf( Float.parseFloat( calif ) ); 
+                datos.setPrecio(Float.parseFloat( precio ) ); 
+                datos.setMarca( marca ); 
+                datos.setStock(Integer.parseInt( stock ) ); 
                 if( "Submit".equals( guardar ) )
                 {
                     lista.add( datos );
@@ -83,7 +89,9 @@
             {
                 datos = new Datos( );
                 datos.setNombre( "" );
-                datos.setCalf( 0f );
+                datos.setPrecio( 0f );
+                datos.setMarca("" );
+                datos.setStock( 0 );
             }
             if( !"Submit".equals( guardar ) && !"Submit".equals( actualizar ) )
             {
@@ -93,11 +101,27 @@
                 <tr>
                     <td>Nombre</td>
                     <td><input id="nombre" name="nombre" value="<%=datos.getNombre()%>" type="text"/></td>
-
                 </tr>
                 <tr>
-                    <td>Calificación</td>
-                    <td><input id="calif" name="calif" value="<%=datos.getCalf()%>" type="number"/>
+                    <td>Precio</td>
+                    <td><input id="precio" name="precio" value="<%=datos.getPrecio()%>" type="number"/>
+                        <%
+                            if( "Submit".equals( editar ) )
+                            {
+                        %>
+                                <input type="hidden" name="id" id="id" value="<%=id%>" />
+                        <%
+                            }
+                        %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Marca</td>
+                    <td><input id="marca" name="marca" value="<%=datos.getMarca()%>" type="text"/></td>
+                </tr>
+                <tr>
+                    <td>Stock</td>
+                    <td><input id="stock" name="stock" value="<%=datos.getStock()%>" type="number"/>
                         <%
                             if( "Submit".equals( editar ) )
                             {
