@@ -1,3 +1,7 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
+ */
 package org.italibi;
 
 import java.io.IOException;
@@ -5,12 +9,19 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class AgregaCliente extends HttpServlet {
 /**
+ *
+ * @author alumno
+ */
+@WebServlet("/AgregaCliente")
+public class AgregaCliente extends HttpServlet {
+
+    /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
      *
@@ -36,6 +47,7 @@ public class AgregaCliente extends HttpServlet {
             if(accion != null && "Guardar".equals(accion) )
             {
                 guardaCliente( request );
+                out.println("<a href=\"ClienteList\">Ir a clientes</a>");
             }
             else
             {
