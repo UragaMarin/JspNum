@@ -3,13 +3,13 @@ import java.io.Serializable;
 public class Datos implements Serializable
 {
     private String nombre;
-    private String marca;
-    private float precio;
-    private int stock;
-
-    public Datos() 
-    {
-    }
+    private int edad;
+    private String contraseña;
+    private String correo;
+    private String genero;
+    private String fecha;
+    private String slider;
+    private String url;
 
     public String getNombre() {
         return nombre;
@@ -19,27 +19,65 @@ public class Datos implements Serializable
         this.nombre = nombre;
     }
 
-    public String getMarca() {
-        return marca;
+    public int getEdad() {
+        return edad;
     }
 
-    public void setMarca(String marca) {
-        this.marca = marca;
+    public void setEdad(int edad) {
+        this.edad = edad;
     }
 
-    public float getPrecio() {
-        return precio;
+    public String getContraseña() {
+        return contraseña;
     }
 
-    public void setPrecio(float precio) {
-        this.precio = precio;
+    public void setContraseña(String contraseña) {
+        this.contraseña = contraseña;
     }
 
-    public int getStock() {
-        return stock;
+    public String getCorreo() {
+        return correo;
     }
 
-    public void setStock(int stock) {
-        this.stock = stock;
+    public void setCorreo(String correo) {
+        this.correo = correo;
     }
+
+    public String getGenero() {
+        return genero;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
+
+    public String getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
+
+    public String getSlider() {
+        return slider;
+    }
+
+    public void setSlider(String slider) {
+        this.slider = slider;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public Datos() 
+    {
+    }
+
+    
 }

@@ -23,8 +23,13 @@ public class Negocio implements Serializable
         for( int i = 1; i <= 5; i++)
         {
             datos = new Datos( );
-            datos.setPrecio((float)(Math.random() * 10));
             datos.setNombre( String.format("Abc %d", i) );
+            datos.setEdad((int)(Math.random() * 10));
+            datos.setContraseña(String.format("Abc %d", i) );
+            datos.setCorreo(String.format("Abc %d", i) );
+            datos.setGenero(String.format("Abc %d", i) );
+            datos.setFecha(String.format( "Abc %d", i));
+            datos.setUrl(String.format( "Abc %d", i));
             lista.add(datos);
         }
         return lista != null && !lista.isEmpty();

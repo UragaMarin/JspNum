@@ -18,7 +18,7 @@
     </head>
     <body>
         <div class="p-3 mb-2 bg-dark text-white">
-        <h1>Tienda de la esquina</h1>
+        <h1>Datos</h1>
         </div>
         <%
             int i = 0;
@@ -57,9 +57,13 @@
                         <th scope="col">#</th>
                         <th scope="col">Id</th>
                         <th scope="col">Nombre</th>
-                        <th scope="col">Precio</th>
-                        <th scope="col">Marca</th>
-                        <th scope="col">Stock</th>
+                        <th scope="col">Edad</th>
+                        <th scope="col">Contraseña</th>
+                        <th scope="col">Correo</th>
+                        <th scope="col">Genero</th>
+                        <th scope="col">Fecha</th>
+                        <th scope="col">Slider</th>
+                        <th scope="col">URL</th>
                         <th scope="col">Acciones</th>
                     </tr>
                 </thead>
@@ -74,9 +78,13 @@
                 <th scope="row"><%=i + 1%></th>
                 <td><%=i%></td>
                 <td><%=datos.getNombre()%></td>
-                <td><%=datos.getPrecio()%></td>
-                <td><%=datos.getMarca()%></td>
-                <td><%=datos.getStock()%></td>
+                <td><%=datos.getEdad()%></td>
+                <td><%=datos.getContraseña()%></td>
+                <td><%=datos.getCorreo()%></td>
+                <td><%=datos.getGenero()%></td>
+                <td><%=datos.getFecha()%></td>
+                <td><%=datos.getSlider()%></td>
+                <td><%=datos.getUrl()%></td>
                 <td>
                     <a href="jsp2.jsp?id=<%=i%>&borrar=Submit">Borrar</a> 
                     <a href="jsp3.jsp?id=<%=i++%>&editar=Submit">Editar</a> 

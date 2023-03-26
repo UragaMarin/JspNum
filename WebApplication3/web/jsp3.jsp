@@ -18,13 +18,17 @@
     </head>
     <body>
         <div class="p-3 mb-2 bg-dark text-white">
-        <h1>Registro de productos</h1>
+        <h1>Registro</h1>
         </div>
         <%
             String nombre = null;
-            String precio = null;
-            String marca = null;
-            String stock = null;
+            String edad = null;
+            String contraseña = null;
+            String correo = null;
+            String genero = null;
+            String fecha = null;
+            String slider = null;
+            String url = null;
             String guardar = null;
             String id = null;
             String editar = null;
@@ -44,9 +48,12 @@
                 lista = (List)session.getAttribute("lista");
             }
             nombre = request.getParameter( "nombre" );
-            precio = request.getParameter( "precio" );
-            marca = request.getParameter( "marca" );
-            stock = request.getParameter( "stock" );
+            edad = request.getParameter( "edad" );
+            contraseña = request.getParameter( "contraseña" );
+            genero = request.getParameter( "genero" );
+            fecha = request.getParameter( "fecha" );
+            slider = request.getParameter( "slider" );
+            url = request.getParameter( "url" );
             guardar = request.getParameter( "guardar" );
             id = request.getParameter( "id" );
             editar = request.getParameter( "editar" );
@@ -73,9 +80,13 @@
                     datos = lista.get( Integer.parseInt( id ) );
                 }
                 datos.setNombre(nombre);
-                datos.setPrecio(Float.parseFloat( precio ) ); 
-                datos.setMarca( marca ); 
-                datos.setStock(Integer.parseInt( stock ) ); 
+                datos.setEdad(Integer.parseInt(edad ) );
+                datos.setContraseña(contraseña);
+                datos.setCorreo(correo);
+                datos.setGenero(genero);
+                datos.setFecha(fecha);
+                datos.setSlider(slider);
+                datos.setUrl(url);
                 if( "Submit".equals( guardar ) )
                 {
                     lista.add( datos );
@@ -92,56 +103,70 @@
             {
                 datos = new Datos( );
                 datos.setNombre( "" );
-                datos.setPrecio( 0f );
-                datos.setMarca("" );
-                datos.setStock( 0 );
+                datos.setEdad( 0 );
+                datos.setContraseña( "" );
+                datos.setCorreo( "" );
+                datos.setGenero("" );
+                datos.setFecha( "" );
+                datos.setSlider("" );
+                datos.setUrl("" );
             }
             if( !"Submit".equals( guardar ) && !"Submit".equals( actualizar ) )
             {
-        %>  
-        <form id="form1">
-            <table border="1">
-                <tr>
+        %>
+        <div class="container">
+            <form id="form1">
+                <table border="1" class="table">
+                    <tr>
                     <td>Nombre</td>
                     <td><input id="nombre" name="nombre" value="<%=datos.getNombre()%>" type="text"/></td>
+
                 </tr>
                 <tr>
-                    <td>Precio</td>
-                    <td><input id="precio" name="precio" value="<%=datos.getPrecio()%>" type="number"/>
-                        <%
+                    <td>Calificación</td>
+                    <td><input id="edad" name="edad" value="<%=datos.getEdad()%>" type="number"/></td>
+                </tr>
+                <tr>
+                    <td>Contraseña</td>
+                    <td><input id="contraseña" name="contraseña" value="<%=datos.getContraseña()%>" type="password"/></td>
+                </tr>
+                <tr>
+                    <td>Genero</td>
+                    <td><input id="sexo" name="sexo" value="<%=datos.getGenero()%>" type="radio"/>Masculino
+                    <input id="sexo" name="sexo" value="<%=datos.getGenero()%>" type="radio"/>Femenino</td>
+                </tr>
+                <tr>
+                    <td>Correo</td>
+                    <td><input id="correo" name="correo" value="<%=datos.getCorreo()%>" type="email"/></td>
+                </tr>
+                <tr>
+                    <td>Fecha de nacimiento</td>
+                    <td><input id="fecha" name="fecha" value="<%=datos.getFecha()%>" type="date"/></td>
+                </tr>
+                <tr>
+                    <td>Slider</td>
+                    <td><input type="range" name="price" id="price" min="50000" max="500000" step="100" value="250000"></td>
+                </tr>
+                <tr>
+                    <td>URL personal</td>
+                    <td><input id="insta" name="insta" value="<%=datos.getUrl()%>" type="url"/></td>
+        <%
                             if( "Submit".equals( editar ) )
                             {
-                        %>
+        %>
                                 <input type="hidden" name="id" id="id" value="<%=id%>" />
-                        <%
+        <%
                             }
-                        %>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Marca</td>
-                    <td><input id="marca" name="marca" value="<%=datos.getMarca()%>" type="text"/></td>
-                </tr>
-                <tr>
-                    <td>Stock</td>
-                    <td><input id="stock" name="stock" value="<%=datos.getStock()%>" type="number"/>
-                        <%
-                            if( "Submit".equals( editar ) )
-                            {
-                        %>
-                                <input type="hidden" name="id" id="id" value="<%=id%>" />
-                        <%
-                            }
-                        %>
-                    </td>
+        %>
                 </tr>
                 <tr >
                     <td colspan="2">
                         <input type="submit" id="Guardar" name="<%=accion%>" />
                     </td>
                 </tr>
-            </table>
-        </form>
+                </table>
+            </form>
+        </div>
         <%
             }
         %>
