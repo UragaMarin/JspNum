@@ -52,11 +52,12 @@
             {
                 var importe = document.getElementById("importe").value;
                 var iva = document.getElementById("iva").value;
+                var tot = 0;
                 if( importe === '' || iva === '' )
                 {
                     return;
                 } else {
-                    var tot = importe;
+                    tot = importe * (1 + (iva / 100 ) );
                     alert("Total " + tot);
                 }
             }
