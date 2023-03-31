@@ -52,11 +52,13 @@
             {
                 var importe = document.getElementById("importe").value;
                 var iva = document.getElementById("iva").value;
-                //if(importe === null && iva === null ){
-                    var x = importe * iva;
-                    var tot = importe + x;
+                if( importe === '' || iva === '' )
+                {
+                    return;
+                } else {
+                    var tot = importe;
                     alert("Total " + tot);
-                //}
+                }
             }
             -->
         </script>
